@@ -42,7 +42,7 @@ new class extends Component {
             </svg>
         </button>
     </div>
-    <ul class="w-full text-gray-900 dark:text-gray-100 menu rounded-box">
+    {{-- <ul class="w-full text-gray-900 dark:text-gray-100 menu rounded-box">
         <li><a>Item 1</a></li>
         <li>
             <details open>
@@ -63,5 +63,6 @@ new class extends Component {
             </details>
         </li>
         <li><a>Item 3</a></li>
-    </ul>
+    </ul> --}}
+    {!! Menu::main() !!}
 </aside>
