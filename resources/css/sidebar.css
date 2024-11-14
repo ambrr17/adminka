@@ -1,22 +1,63 @@
+.sidebar {
+    --transition-in: ease-in;
+    --transition-out: ease-in;
+}
+
 #sidebar[data-sidebarState="open"] {
     width: 16rem;
+    transition: width .4s;
+    transition-timing-function: var(--transition-out);
+}
+
+#sidebar[data-sidebarState="open"]>ul {/*почему-то мгновенно появляется???*/
+    opacity: 1;
+    transition: opacity .4s;
+    transition-timing-function: var(--transition-out);
+    transition-delay: .8s;
 }
 
 #sidebar[data-sidebarState="hidden"] {
-    width: 5rem;
+    width: 4.5rem;
+    transition: width .4s;
+    transition-timing-function: var(--transition-in);
+    transition-delay: .2s;
+}
+
+#sidebar[data-sidebarState="hidden"]>ul>li>a>span,
+#sidebar[data-sidebarState="hidden"]>ul summary span,
+#sidebar[data-sidebarState="hidden"]>ul summary::after,
+#sidebar[data-sidebarState="hidden"]>ul>li ul {
+    opacity: 0;
+    transition: opacity .3s;
+    transition-timing-function: var(--transition-in);
+}
+
+#sidebar[data-sidebarState="close"]>ul>li>a>span,
+#sidebar[data-sidebarState="close"]>ul summary span,
+#sidebar[data-sidebarState="close"]>ul summary::after,
+#sidebar[data-sidebarState="close"]>ul>li ul {
+    opacity: 0;
+}
+
+#sidebar[data-sidebarState="close"]>ul>li>a>svg,
+#sidebar[data-sidebarState="close"]>ul summary>svg {
+    opacity: 0;
+    transition: opacity .4s;
+    transition-timing-function: var(--transition-in);
 }
 
 #sidebar[data-sidebarState="close"] {
     width: 1rem;
+    transition: width .4s;
+    transition-timing-function: var(--transition-in);
+    transition-delay: .2s;
 }
+
 
 #sidebar[data-sidebarState="close"] #sidebar-logo {
     opacity: 0;
-    transition: opacity .4s ease-in;
-}
-
-.sidebar {
-    transition: width .4s ease-in-out;
+    transition: opacity .4s;
+    transition-timing-function: var(--transition-in);
 }
 
 .sidebar-header {
@@ -25,7 +66,8 @@
 
 #sidebar-logo {
     opacity: 1;
-    transition: opacity .4s ease-out;
+    transition: opacity .4s;
+    transition-timing-function: var(--transition-out);
 }
 
 .sidebar-state-btn {
