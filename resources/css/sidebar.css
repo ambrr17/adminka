@@ -1,0 +1,52 @@
+#sidebar[data-sidebarState="open"] {
+    width: 16rem;
+}
+
+#sidebar[data-sidebarState="hidden"] {
+    width: 5rem;
+}
+
+#sidebar[data-sidebarState="close"] {
+    width: 1rem;
+}
+
+#sidebar[data-sidebarState="close"] #sidebar-logo {
+    opacity: 0;
+    transition: opacity .4s ease-in;
+}
+
+.sidebar {
+    transition: width .4s ease-in-out;
+}
+
+.sidebar-header {
+    @apply box-content relative flex items-center justify-center h-16 bg-white border-b border-gray-100 shrink-0 dark:bg-gray-800 dark:border-gray-700;
+}
+
+#sidebar-logo {
+    opacity: 1;
+    transition: opacity .4s ease-out;
+}
+
+.sidebar-state-btn {
+    width: 1.4rem;
+    height: 1.4rem;
+    position: absolute;
+    top: calc(50% - 0.7rem);
+    right: -0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.sidebar-state-btn:hover {
+    background-color: color-mix(in oklab, oklch(var(--btn-color, var(--b2)) / var(--tw-bg-opacity, 1)) 90%, black);
+}
+
+.sidebar-link {
+    @apply flex items-center p-2 text-gray-600 rounded-lg hover:bg-gray-100;
+}
